@@ -7,7 +7,7 @@ $(".modal__header__close").click(function (e){
     } else {
         $(".modal").addClass("visible");
     }
-})
+});
 
 // Handle modal process button click 
 $(".modal__button").click(function(e){
@@ -37,3 +37,13 @@ const loadContent = function() {
     content += results + "<span></div>";
     return content;
 };
+
+
+const manageCollectionsModal = $(".modal");
+const manageCollectionsFunction = loadContent;
+
+function modalActions(modal, processFunc){
+
+}
+
+modalActions(manageCollectionsModal, manageCollectionsFunction);

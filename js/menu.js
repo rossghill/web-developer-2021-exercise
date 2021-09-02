@@ -1,18 +1,26 @@
-// Open/ close nav menu 
-$(".header__menu__submenu").click(function (e) { 
-    if($(".header__submenu").hasClass("visible")){
-        $(".header__submenu").removeClass("visible");
-    } else {
-        $(".header__submenu").addClass("visible");
-    }   
-});
+const manageCollectionsItem = $(".manage-modal");
+const manageCollectionsModal = $(".modal");
+const headerSubmenu = $(".header__submenu");
 
 // Open modal from menu item click
-$(".manage-modal").click(function (e){
-    if($(".modal").hasClass("visible")){
-        $(".modal").removeClass("visible");
+function openModal(menuItem, modal) {
+    menuItem.click(function (e){
+        if(modal.hasClass("visible")){
+            modal.removeClass("visible");
+        } else {
+            modal.addClass("visible");
+            $(".header__submenu").removeClass("visible");
+        }
+    })
+}
+
+openModal(manageCollectionsItem, manageCollectionsModal);
+
+// Open/ close nav menu 
+$(".header__menu__open").click(function (e) { 
+    if(headerSubmenu.hasClass("visible")){
+        headerSubmenu.removeClass("visible");
     } else {
-        $(".modal").addClass("visible");
-        $(".header__submenu").removeClass("visible");
-    }
-})
+        headerSubmenu.addClass("visible");
+    }   
+});
