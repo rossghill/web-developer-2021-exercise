@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refract Webapp</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <section class="header__search">
+            <form action="#" method="get">
+                <div class="header__search__input">
+                    <img src="./imgs/search.svg"/>
+                    <input type="search" name="search" id="search" placeholder="Find people or topics" maxlength="50" />
+                </div>
+            </form>
+        </section>
+        <div class="header__title">
+            <h1>Home</h1>
+        </div>
+        <nav class="header__menu">
+            <ul>
+                <li class="header__menu__camera">
+                    <a href="#"><img src="./imgs/camera.svg" alt="Camera icon"></a>
+                </li>
+                <li class="header__menu__submenu">
+                    <a href="#"><img src="./imgs/menu.svg" alt="Menu icon"></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Menu  -->
+    <ul class="header__submenu">
+        <li class="header__submenu__item manage-modal">Manage collections and tasks</li>
+        <li class="header__submenu__item">About</li>
+        <li class="header__submenu__item">Help</li>
+    </ul>
+    <!-- Pop up modal -->
+    <aside class="modal">
+        <div class="modal__header">
+            <div class="modal__header__title">Manage collections and tasks</div>
+            <div class="modal__header__close">
+                <span>X</span>
+            </div>
+        </div>
+        <button class="modal__button visible">Process</button>
+        <!-- Loading spinner -->
+        <div class="loader"></div>
+    </aside>
+</body>
+
+<script src="./js/menu.js"></script>
+<script src="./js/dialog.js"></script>
+
+</html>
