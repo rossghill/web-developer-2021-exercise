@@ -1,27 +1,3 @@
-// Handle modal close button 
-$(".modal__header__close").click(function (e){
-    if($(".modal").hasClass("visible")){
-        $(".modal").removeClass("visible");
-        $(".modal__button").addClass("visible");
-        $(".results").toggle("hidden");
-    } else {
-        $(".modal").addClass("visible");
-    }
-});
-
-// Handle modal process button click 
-$(".modal__button").click(function(e){
-    if($(".modal__button").hasClass("visible")){
-        $(".modal__button").removeClass("visible");
-        $(".loader").addClass("visible");
-        setTimeout(() => {
-            $(".loader").removeClass("visible");
-            $(".modal__header").after(loadContent());
-        }, 2000);
-    }
-})
-
-// Handle content load 
 const loadContent = function() {
     const calculateTotal = function(){
         const total = Number("3");
@@ -38,12 +14,29 @@ const loadContent = function() {
     return content;
 };
 
-
-const manageCollectionsModal = $(".modal");
-const manageCollectionsFunction = loadContent;
-
+// Handle modal functionality 
 function modalActions(modal, processFunc){
-
+    // Handle modal close button 
+    $(".modal__header__close").click(function (e){
+        if(manageCollectionsModal.hasClass("visible")){
+            manageCollectionsModal.removeClass("visible");
+            $(".modal__button").addClass("visible");
+            $(".results").addClass("hidden");
+        } else {
+            manageCollectionsModal.addClass("visible");
+        }
+    });
+    // Handle modal process button click 
+    $(".modal__button").click(function(e){
+        if($(".modal__button").hasClass("visible")){
+            $(".modal__button").removeClass("visible");
+            $(".loader").addClass("visible");
+            setTimeout(() => {
+                $(".loader").removeClass("visible");
+                $(".modal__header").after(loadContent());
+            }, 2000);
+        }
+    })
 }
 
-modalActions(manageCollectionsModal, manageCollectionsFunction);
+modalActions(manageCollectionsModal, loadContent);
